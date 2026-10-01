@@ -1,11 +1,11 @@
 # Título Proyecto
 
-## Miembros del grupo LX-XXX-X (sustituir)
+## Miembros del grupo L6-DF-3
 
-1. Apellidos, Nombre
-1. Apellidos, Nombre
-1. Apellidos, Nombre
-1. Apellidos, Nombre
+1. Torres Muñoz, Jose Antonio 
+1. Martínez Cintas, Pilar
+1. Palma Pastrana, Virginia
+1. Izquierdo Burguillos, Alejandro
 
 ## 1. Introducción al problema
 
