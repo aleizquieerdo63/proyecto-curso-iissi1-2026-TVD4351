@@ -3,7 +3,7 @@
 ## Miembros del grupo L6-DF-3
 
 1. Torres Muñoz, Jose Antonio 
-1. Martínez Cintas, Pilar
+1. Martínez Cintas, Pilar puta
 1. Palma Pastrana, Virginia
 1. Izquierdo Burguillos, Alejandro
 
