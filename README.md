@@ -20,17 +20,13 @@
    3.2. Usuarios del sistema (Roles)
 4. Catálogo de requisitos
    
-   4.1. Mapa de historias de usuario
+   4.1. Requisitos de información
    
-   4.2. Requisitos de información
+   4.2. Reglas de negocio
    
-   4.3. Reglas de negocio
-   
-   4.4. Requisitos funcionales (sólo listados y consultas)
-   
-   4.5. Requisitos no funcionales
-  
-   4.6. Pruebas de aceptación de reglas de negocio
+   4.3. Requisitos funcionales (sólo listados y consultas)
+ 
+   4.4. Pruebas de aceptación de reglas de negocio
 
 ---
 
@@ -42,18 +38,10 @@ Actualmente, el sistema de información de la clínica opera de manera tradicion
 
 Este crecimiento repentino ha desbordado la capacidad operativa del sistema actual, generando una serie de problemas que afectan tanto a la eficiencia interna como a la calidad del servicio ofrecido a los clientes.
 
-![Problemática](img/imagen1.jpg)
-
 La gestión en papel y los procesos manuales están causando problemas serios en el día a día de la clínica. Perder tiempo buscando fichas guardadas o no entender la letra de otros compañeros retrasa las consultas, y siempre existe el riesgo de que los papeles se estropeen o se pierdan para siempre. Además, como solo una persona puede tener la carpeta en la mano, en recepción y en las salas se forman atascos constantes. A esto se le suma tener que llamar manualmente a las personas para recordarles su cita porque no podemos mandar avisos automáticos.
 
-![Mesa](img/imagen2.jpg)
 
 El objetivo principal del proyecto es diseñar un sistema digital centralizado que reemplace el papel en la clínica Joviralpi mediante una base de datos única y accesible para todo el personal. Con esta solución se busca proteger la información clínica evitando pérdidas o errores, agilizar la operativa diaria al eliminar la búsqueda manual de fichas, y mejorar la experiencia del cliente reduciendo los tiempos de espera y facilitando los recordatorios de citas.
-
-En cuanto a los usuarios del sistema, encontramos:
-- Cliente del proyecto/promotor: El director de la clínica Joviralpi.
-- Usuarios del sistema: Director, Veterinarios, Recepcionistas (usuarios directos).
-- Clientes del negocio: Propietarios de los pacientes (receptores indirectos del servicio).
 
 En conclusión, queremos digitalizar nuestra clínica para que haya una evolución y mejora del funcionamiento y servicio que ofrecemos a los clientes.
 
@@ -66,6 +54,7 @@ En conclusión, queremos digitalizar nuestra clínica para que haya una evoluci�
 - Diagnóstico: Juicio emitido formalmente por el veterinario tras el examen del paciente durante una consulta.
 - Especie: Clasificación biológica a la que pertenece el paciente (canina, felina, etc.).
 - Raza: División dentro de cada especie.
+- Microchip: pequeño dispositivo electrónico que se implanta bajo la piel de las mascotas para su identificación permanente y legal.
 
 ---
 
@@ -75,23 +64,29 @@ En conclusión, queremos digitalizar nuestra clínica para que haya una evoluci�
 
 Nuestros propósitos principales para el sistema de la clínica, codificados y expresados formalmente como historias épicas, son los siguientes:
 
-RG-01: Gestión de pacientes e historiales
+RG-01: Gestión de clientes  
 
-Como veterinario,
-quiero gestionar de forma digital los historiales médicos de los pacientes,
-para agilizar las consultas, poder ver el historial simultáneamente desde diferentes ordenadores y evitar la pérdida de documentos de papel.
+*Como* recepcionista
+*Quiero* saber los dueños de las mascotas,
+*Para* realizar los trámites como la disponibilidad de consultas y la confirmación de estas
 
-RG-02: Gestión de agenda y citas
+RG-02: Gestión de mascotas:
 
-Como recepcionista,
-quiero gestionar la agenda de citas de la clínica de forma centralizada,
-para organizar mejor el tiempo de los veterinarios, evitar que dos clientes vengan a la misma hora y reducir las esperas.
+*Como* veterinario,
+*Quiero* gestionar los datos sobre las mascotas
+*Para* consultar su historial clínico y llevar un seguimiento
 
-RG-03: Gestión de personal y accesos  
+RG-03: Gestión de citas
 
-Como director de la clínica,
-quiero gestionar los datos y accesos de los empleados en el sistema,
-para controlar la plantilla activa, garantizar la seguridad de la información clínica y permitir la asignación de turnos y citas a los veterinarios disponibles.
+*Como* recepcionista
+*Quiero* gestionar las citas de la clínica de forma centralizada,
+*Para* organizar mejor el tiempo de los veterinarios, evitar que dos clientes vengan a la misma hora y reducir las esperas.
+
+RG-04: Gestión de usuarios 
+
+*Como* director de la clínica
+*Quiero* gestionar los datos y accesos de los empleados en el sistema,
+*Para* controlar la plantilla activa, garantizar la seguridad de la información clínica y permitir la asignación de turnos y citas a los veterinarios disponibles.
 
 ### 3.2. Usuarios del sistema (Roles)
 
@@ -110,44 +105,44 @@ Es el gerente de la clínica y tiene permisos totales. Además de poder hacer to
 
 ## 4. Catálogo de requisitos
 
-### 4.1. Mapa de historias de usuario
+### 4.1. Requisitos de información CAMBIAR
 
-![Mapa de historias de usuario](img/mapa_historias_usuario.jpg)
+RI-01: Información de Clientes.
 
-### 4.2. Requisitos de información
+*Como* administrador del sistema,
+*Quiero* almacenar la siguiente información de Clientes: DNI/NIF, nombre y apellidos, teléfono, correo electrónico, dirección postal
 
-Los requisitos de información especifican los conceptos relevantes del dominio del problema sobre los cuales el sistema debe persistir datos, así como el detalle de las propiedades o atributos específicos que los usuarios necesitan conocer para llevar a cabo su operativa diaria.
+Un cliente puede tratar en la clínica varias Mascotas, con un máximo de 5.
 
-RI-01: Información sobre Clientes
+RI-02: Información de Mascotas.
 
-Como recepcionista, quiero disponer de la información centralizada de los clientes para gestionar su ficha de contacto y su alta en la clínica.
-Para cada cliente, el sistema registrará de forma obligatoria su DNI/NIF, nombre y apellidos, teléfono de contacto principal, correo electrónico y fecha de alta en la clínica, además de los datos de su dirección postal completa (calle, número, código postal y localidad).
+*Como* administrador del sistema,
+*Quiero* almacenar la siguiente información de Mascotas: número de microchip, nombre, especie, raza, sexo(hembra, macho), fecha de nacimiento
 
-RI-02: Información sobre Citas
+Una mascota tiene un dueño
 
-Como recepcionista, quiero gestionar los datos de las reservas para organizar la agenda y el flujo de atención en la clínica.
-El registro de cada cita incluirá un código identificador de la cita, la fecha y hora programadas, el motivo o tipo de cita (consulta general, revisión, vacunación o urgencia), el estado actual (pendiente, confirmada, atendida o cancelada), el paciente asignado, el veterinario responsable y, de forma opcional, un campo de observaciones o notas previas.
+Cada mascota podrá visitar a numerosos veterinarios, y un veterinario podrá atender a múltiples mascotas. De cada visita (Cita), almacenaremos la siguiente información: fecha y hora, motivo de la consulta, diagnostico, coste
 
-RI-03: Información sobre Pacientes
 
-Como veterinario, quiero acceder a la información descriptiva de cada paciente para gestionar su perfil clínico y asociarlo a su dueño:
-Cada paciente (mascota) estará identificado por su número de microchip, incluyendo detalles como su nombre, especie, raza, sexo, fecha de nacimiento (o fecha estimada en su defecto) y la vinculación con el cliente titular responsable de la mascota.
+RI-03: Información de Citas
 
-RI-04: Información sobre Consultas Médicas e Historial
+*Como* administrador del sistema,
+*Quiero* almacenar la siguiente información de las citas: fecha y hora programada, cliente, mascota, veterinario asiganado, motivo o tipo de cita (consulta general, revisión o urgencia), estado actual de la cita (pendiente, confirmada, atendida o cancelada), observaciones o notas previas (opcional)
 
-Como veterinario, quiero registrar el detalle de cada consulta para construir un historial médico preciso del paciente.
-Cada consulta médica almacenará un código identificador de la consulta, la cita previa asociada, el paciente atendido, el veterinario actuante y la fecha y hora reales de atención. Además, se registrarán las constantes vitales del paciente (peso actual en kg y temperatura corporal en ºC), la exploración médica, el diagnóstico clínico y las observaciones facultativas.
+HAY QUE RELACIONAR LAS CITAS CON ALGO :PENDIENTE
 
-RI-05: Información sobre Personal de la Clínica
+RI-04: Información de Usuarios:
 
-Como director de la clínica, quiero gestionar los datos del personal para controlar el acceso y la asignación de roles operativos.
-Para cada empleado, el sistema conservará su DNI/NIF, nombre y apellidos, teléfono de contacto, correo electrónico corporativo, puesto o rol asignado (Director, Veterinario o Recepcionista) y su estado laboral (activo o de baja).
+*Como* administrador del sistema,
+*Quiero* almacenar la siguiente información de los Usuarios: DNI/NIF, nombre, apellidos, teléfono, correo electrónico, rol (veterinario, recepcionista), estado de acceso (activo, inactivo), horarios de trabajo
 
-### 4.3. Reglas de negocio
+El director supervisa a los recepcionistas y a los veterinarios
+
+### 4.2. Reglas de negocio
 
 Las reglas de negocio definen las políticas, restricciones y condiciones que rigen el funcionamiento de la clínica Joviralpi y que el sistema debe hacer cumplir obligatoriamente para garantizar la integridad y coherencia de los datos:
 
-RN-01: No al solapamiento de citas de un mismo veterinario
+RN-01: Solapamiento de citas de un mismo veterinario
 
 Como recepcionista, quiero que el sistema impida asignar a un mismo veterinario dos citas que coincidan en el mismo tramo de fecha y hora, para evitar duplicidades de agenda, retrasos en la atención y saturación de los gabinetes de consulta.
 
@@ -155,69 +150,121 @@ RN-02: Asignación de citas exclusivamente a veterinarios en activo y en horario
 
 Como director de la clínica, quiero que solo se puedan reservar citas en tramos horarios comprendidos dentro del horario comercial de la clínica y asignadas a empleados registrados con el rol de veterinario que figuren en estado activo, para garantizar el cumplimiento de los turnos laborales y asegurar que todo paciente citado sea atendido por personal cualificado disponible.
 
-RN-03: Unicidad de identificadores oficiales (Microchip, NIF y Número de colegiado)
+RN-03: Máximo registrados
 
-Como recepcionista, quiero que el sistema no permita dar de alta a dos pacientes con el mismo número de microchip, ni a dos veterinarios con el mismo número de colegiado, para evitar duplicidades en los historiales clínicos, y asegurar la correcta identificación.
+Como recepcionista, quiero asegurarme de que un cliente no puede tener a más de 5 mascotas registradas en la clínica
 
-RN-04: Fecha y hora de cita posterior al momento del registro
+RN-04: Tiempo de anulación de citas
 
-Como recepcionista, quiero que al agendar una nueva cita la fecha y hora programada sea posterior al momento actual del registro en el sistema, para evitar incoherencias en la agenda de la clínica.
+Como recepcionista, necesito comunicarme con el cliente como míninmo 48 horas antes para saber si la cita esta confirmada o anulada. No se puede anular una cita con poca antelación
 
-RN-05: Obligatoriedad de colegiación para la firma de consultas y recetas
+RN-05: Asignación de citas conservando pagos
 
-Como director de la clínica, quiero que una consulta médica, diagnóstico o tratamiento solo pueda ser registrado y firmado por un usuario que disponga del rol de veterinario y cuente con su número oficial de colegiado debidamente validado, para cumplir con la legislación sanitaria vigente y evitar problemas legales.
+Como recepcionista, quiero tener un control de los pagos, asegurando de que no se dé una cita nueva a un cliente que no haya pagado la anterior
 
-### 4.4. Requisitos funcionales: listados y consultas (RF) "(4 por cada requisito general)"
+RN-06: Tiempo máximo de pago
 
-RF-01: Consulta del historial clínico integral de un paciente
+Como director, llevo una lista de los pagos diarios y voy confirmando que todos se pagen antes de las dos semanas siguientes a la cita
 
-Como veterinario, quiero consultar la ficha completa e historial médico acumulado de un paciente específico a partir de su número de microchip (mostrando ordenadas cronológicamente de forma descendente todas sus consultas pasadas, constantes registradas, diagnósticos emitidos y tratamientos pautados), para disponer de una visión médica global y antecedentes inmediatos antes de intervenir o prescribir.
+### 4.3. Requisitos funcionales: listados y consultas (RF) "(4 por cada requisito general, listado)"
 
-RF-02: Listado diario de citas por veterinario y estado
+RF-01.1: Listado de clientes
 
-Como veterinario, quiero consultar el listado de las citas programadas para mi persona en una fecha seleccionada, pudiendo filtrar por estado (pendiente, confirmada, atendida, cancelada) y ordenadas cronológicamente por hora, para organizar mi jornada asistencial y optimizar la ocupación de los gabinetes clínicos.
+*Como* recepcionista,
+*Quiero* ver un listado en el que pueda buscar los clientes registrados en la clínica
+*Para* consultar sus datos y localizar rápidamente a los dueños de las mascotas al gestionar la disponibilidad y confirmación de sus consultas
 
-RF-03: Búsqueda avanzada de pacientes y clientes
+RF-01.2: Creación de clientes
 
-Como recepcionista, quiero buscar y listar pacientes por coincidencia en el número de microchip, nombre del animal o NIF/teléfono del propietario, para localizar inmediatamente el expediente del paciente al momento de su llegada al mostrador de recepción o durante una consulta telefónica.
+*Como* recepcionista,
+*Quiero* registrar todos los datos necesarios de un nuevo dueño de mascota en el sistema
+*Para* darlos de alta en la base de datos de la clínica y después permitir asignarles citas
 
-RF-04: Listado de veterinarios en plantilla y disponibilidad
+RF-01.3: Edición de clientes
 
-Como recepcionista, quiero consultar el listado de veterinarios registrados que se encuentran en estado activo con indicación de su número de colegiado oficial, para validar la asignación de citas únicamente a facultativos legalmente habilitados y en activo.
+*Como* recepcionista,
+*Quiero* modificar los datos de un cliente ya registrado
+*Para* mantener actualizada su información de contacto (teléfono, correo o dirección) ante posibles avisos o confirmaciones de consulta
 
-RF-05: Informe estadístico de actividad asistencial por veterinario
+RF-01.4: Borrado de clientes
 
-Como director de la clínica, quiero consultar un resumen estadístico mensual que cuantifique el número total de consultas atendidas, agrupados por veterinario colegiado, para evaluar la carga asistencial de la plantilla y apoyar la toma de decisiones sobre turnos y refuerzos de personal.
+*Como* recepcionista,
+*Quiero* dar de baja a un cliente en el sistema
+*Para* deshabilitar su ficha e impedir que se le sigan asignando trámites o consultas si ya no acude a la clínica
 
-RF-06: Listado de clientes inactivos o sin visitas recientes
+RF-02.1: Listado de mascotas
 
-Como director de la clínica, quiero consultar el listado de clientes registrados que no hayan acudido a la clínica ni solicitado citas en los últimos doce meses, para planificar campañas de revisión preventiva, chequeos geriátricos y fidelización de clientes.
+*Como* administrador del sistema,
+*Quiero* consultar un listado de todas las mascotas registradas junto con su dueño responsable
+*Para* localizar su historial clínico rápidamente según su número de microchip o nombre 
 
-### 4.5. Requisitos no funcionales
+RF-02.2: Creación de mascotas
 
-Los requisitos no funcionales describen características de calidad del sistema como la seguridad, el rendimiento o la tecnología utilizada:
+*Como* administrador del sistema,
+*Quiero* registrar los datos de una mascota vinculandola a su dueño
+*Para* incorporar la información al sistema y permitir sus futuras citas
 
-RNF-01: Control de acceso y seguridad
+RF-02.3: Edición de mascotas
 
-Como director de la clínica, quiero que cada usuario acceda al sistema con su cuenta personal y tenga permisos según su rol (director, veterinario o recepcionista), para asegurar la confidencialidad de los datos médicos de los pacientes y cumplir con la normativa de protección de datos.
+*Como* administrador del sistema,
+*Quiero* actualizar la información registrada de una mascota
+*Para* mantener la ficha correctamente actualizada en la base de datos
 
-RNF-02: Tiempo de respuesta
+RF-02.4: Borrado de mascotas
 
-Como recepcionista, quiero que las búsquedas de fichas y las consultas de la agenda se muestren en menos de 2 segundos, para poder atender a los clientes en el mostrador sin retrasos.
+*Como* administrador del sistema,
+*Quiero* dar de baja la ficha de una mascota
+*Para* inactivar su registro en caso de fallecimiento o cambio de centro veterinario, evitando que se le asignen nuevas citas
 
-RNF-03: Acceso concurrente y disponibilidad
+RF-03.1: Listado de citas
 
-Como director de la clínica, quiero que varios empleados puedan utilizar el programa de forma simultánea desde diferentes ordenadores sin que se produzcan bloqueos, para evitar las esperas que teníamos cuando solo disponíamos de carpetas de papel.
+*Como* recepcionista,
+*Quiero* visualizar un calendario de todas las citas programadas en la clínica
+*Para* consultar la disponibilidad y los horarios de los veterinarios y organizar mejor las consultas diarias
 
-RNF-04: Base de datos relacional MariaDB
+RF-03.2: Creación de citas
 
-Como director de la clínica, quiero que el sistema funcione sobre el gestor de bases de datos MariaDB, para cumplir con los requisitos tecnológicos establecidos en la asignatura.
+*Como* recepcionista,
+*Quiero* registrar una nueva cita asociando una fecha y hora, un cliente, una mascota y un veterinario
+*Para* asignar el turno correspondiente y evitar que dos clientes coincidan a la misma hora
 
-RNF-05: Usabilidad de la interfaz
+RF-03.3: Edición de citas
 
-Como recepcionista, quiero que la interfaz del programa sea clara, sencilla e intuitiva de usar, para aprender a manejar el sistema rápidamente y evitar equivocaciones al introducir datos.
+*Como* recepcionista,
+*Quiero* modificar los datos de una cita existente (fecha, hora, movito o veterinario asignado)
+*Para* actualizar los detalles de la visita según las necesidades del cliente
 
-### 4.6. Pruebas de aceptación de reglas de negocio
+RF-03.4: Borrado de citas
+
+*Como* recepcionista,
+*Quiero* cancelar o eliminar una cita programada en el sistema
+*Para* liberar el hueco en el horario del veterinario, evitar confusiones y poder reasignar ese horario a otra mascota
+
+RF-04.1: Listado de usuarios
+
+*Como* director,
+*Quiero* visualizar un listado de todos los empleados registrados en el sistema
+*Para* consultar la plantilla activa, revisar sus roles y comprobar su disponibilidad
+
+RF-04.2: Creación de usuarios
+
+*Como* director,
+*Quiero* registrar un nuevo empleado asignandole sus datos personales y credenciales de acceso
+*Para* darle de alta en el sistema y permitir operar según las responsabilidades de su puesto
+
+RF-04.3: Edición de usuarios
+
+*Como* director,
+*Quiero* actualizar la información de un empleado
+*Para* mantener al día los datos del personal y ajustar sus permisos en el sistema
+
+RF-04.4: Borrado de usuarios
+
+*Como* director,
+*Quiero* dar de baja o inactivar la cuenta de un empleado
+*Para* denegar inmediatamente sus accesos garantizando la seguridad de la información clínica cuando deje de formar parte de la plantilla
+
+### 4.4. Pruebas de aceptación de reglas de negocio
 
 Para cada regla de negocio se definen pruebas de aceptación que describen escenarios válidos (positivos) y escenarios donde se intenta incumplir la regla (negativos):
 
