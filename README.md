@@ -62,18 +62,10 @@ En conclusión, queremos digitalizar nuestra clínica para que haya una evoluci�
 ## 2. Glosario de términos
 
 - Cartilla sanitaria: Es el documento básico de salud preventiva del animal. Un librito físico donde se anotan y sellan las vacunas y desparasitaciones administradas.
-- Cita: Reserva formal de un tramo horario en la agenda de la clínica para que un paciente sea atendido por un veterinario disponible.
-- Cliente: Persona física propietaria del animal. Es el titular de contacto (teléfono, correo electrónico, dirección) y quien solicita las citas y abona los servicios.
-- Consulta: Acto médico asistencial en el que un veterinario examina a un paciente en el gabinete clínico, emite un diagnóstico y prescribe, si es necesario, un tratamiento.
 - Desparasitación: Tratamiento preventivo o curativo consistente en la administración de fármacos antiparasitarios a un paciente.
 - Diagnóstico: Juicio emitido formalmente por el veterinario tras el examen del paciente durante una consulta.
 - Especie: Clasificación biológica a la que pertenece el paciente (canina, felina, etc.).
-- Historial clínico: Registro que acumula todos los eventos médicos de la vida de un paciente: consultas previas, evoluciones, diagnósticos, tratamientos, cirugías, alergias y calendario vacunal.
-- Paciente: Animal que recibe atención médica en la clínica.
 - Raza: División dentro de cada especie.
-- Tratamiento: Conjunto de pautas farmacológicas, terapéuticas o dietéticas prescritas por un veterinario para restablecer la salud del paciente tras emitir un diagnóstico.
-- Vacuna: Producto biológico administrado al paciente para proporcionarle inmunidad frente a patógenos.
-- Veterinario: Profesional sanitario con titulación oficial que realiza las consultas, diagnósticos y tratamientos de los pacientes en la clínica.
 
 ---
 
@@ -95,7 +87,7 @@ Como recepcionista,
 quiero gestionar la agenda de citas de la clínica de forma centralizada,
 para organizar mejor el tiempo de los veterinarios, evitar que dos clientes vengan a la misma hora y reducir las esperas.
 
-RG-03: Gestión de personal y accesos
+RG-03: Gestión de personal y accesos  
 
 Como director de la clínica,
 quiero gestionar los datos y accesos de los empleados en el sistema,
@@ -138,7 +130,7 @@ El registro de cada cita incluirá un código identificador de la cita, la fecha
 
 RI-03: Información sobre Pacientes
 
-Como veterinario, quiero acceder a la información descriptiva de cada paciente para gestionar su perfil clínico y asociarlo a su dueño.
+Como veterinario, quiero acceder a la información descriptiva de cada paciente para gestionar su perfil clínico y asociarlo a su dueño:
 Cada paciente (mascota) estará identificado por su número de microchip, incluyendo detalles como su nombre, especie, raza, sexo, fecha de nacimiento (o fecha estimada en su defecto) y la vinculación con el cliente titular responsable de la mascota.
 
 RI-04: Información sobre Consultas Médicas e Historial
@@ -175,7 +167,7 @@ RN-05: Obligatoriedad de colegiación para la firma de consultas y recetas
 
 Como director de la clínica, quiero que una consulta médica, diagnóstico o tratamiento solo pueda ser registrado y firmado por un usuario que disponga del rol de veterinario y cuente con su número oficial de colegiado debidamente validado, para cumplir con la legislación sanitaria vigente y evitar problemas legales.
 
-### 4.4. Requisitos funcionales: listados y consultas (RF)
+### 4.4. Requisitos funcionales: listados y consultas (RF) "(4 por cada requisito general)"
 
 RF-01: Consulta del historial clínico integral de un paciente
 
