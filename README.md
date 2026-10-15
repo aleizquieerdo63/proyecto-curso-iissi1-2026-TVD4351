@@ -20,7 +20,7 @@
    3.2. Usuarios del sistema (Roles)
 4. Catálogo de requisitos
    
-   4.1. Mapa de historias de usuario (opcional)
+   4.1. Mapa de historias de usuario
    
    4.2. Requisitos de información
    
@@ -28,7 +28,7 @@
    
    4.4. Requisitos funcionales (sólo listados y consultas)
    
-   4.5. Requisitos no funcionales (opcional)
+   4.5. Requisitos no funcionales
   
    4.6. Pruebas de aceptación de reglas de negocio
 
@@ -42,12 +42,11 @@ Actualmente, el sistema de información de la clínica opera de manera tradicion
 
 Este crecimiento repentino ha desbordado la capacidad operativa del sistema actual, generando una serie de problemas que afectan tanto a la eficiencia interna como a la calidad del servicio ofrecido a los clientes.
 
-![Problemática](img/Gemini_Generated_Image_kol014kol014kol0.jpg)
+![Problemática](img/imagen1.jpg)
 
 La gestión en papel y los procesos manuales están causando problemas serios en el día a día de la clínica. Perder tiempo buscando fichas guardadas o no entender la letra de otros compañeros retrasa las consultas, y siempre existe el riesgo de que los papeles se estropeen o se pierdan para siempre. Además, como solo una persona puede tener la carpeta en la mano, en recepción y en las salas se forman atascos constantes. A esto se le suma tener que llamar manualmente a las personas para recordarles su cita porque no podemos mandar avisos automáticos.
 
-![Problemática](img/Gemini_Generated_Image_ey74y9ey74y9ey74.jpg)
-
+![Mesa](img/imagen2.jpg)
 
 El objetivo principal del proyecto es diseñar un sistema digital centralizado que reemplace el papel en la clínica Joviralpi mediante una base de datos única y accesible para todo el personal. Con esta solución se busca proteger la información clínica evitando pérdidas o errores, agilizar la operativa diaria al eliminar la búsqueda manual de fichas, y mejorar la experiencia del cliente reduciendo los tiempos de espera y facilitando los recordatorios de citas.
 
