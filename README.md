@@ -117,17 +117,16 @@ Un cliente puede tratar en la clínica varias Mascotas, con un máximo de 5.
 RI-02: Información de Mascotas.
 
 *Como* administrador del sistema,
-*Quiero* almacenar la siguiente información de Mascotas: número de microchip, nombre, especie, raza, sexo(hembra, macho), fecha de nacimiento
+*Quiero* almacenar la siguiente información de Mascotas: número de microchip, nombre, especie, raza, sexo(hembra, macho), fecha de nacimiento.
 
 Una mascota tiene un dueño
 
-Cada mascota podrá visitar a numerosos veterinarios, y un veterinario podrá atender a múltiples mascotas. De cada visita (Cita), almacenaremos la siguiente información: fecha y hora, motivo de la consulta, diagnostico, coste
-
+Cada mascota podrá visitar a numerosos veterinarios, y un veterinario podrá atender a múltiples mascotas.
 
 RI-03: Información de Citas
 
 *Como* administrador del sistema,
-*Quiero* almacenar la siguiente información de las citas: fecha y hora programada, cliente, mascota, veterinario asiganado, motivo o tipo de cita (consulta general, revisión o urgencia), estado actual de la cita (pendiente, confirmada, atendida o cancelada), observaciones o notas previas (opcional)
+*Quiero* almacenar la siguiente información de las citas: fecha y hora programada, cliente, mascota, veterinario asignado, motivo o tipo de cita (consulta general, revisión o urgencia), estado actual de la cita (pendiente, confirmada, atendida o cancelada), observaciones o notas previas (opcional), coste.
 
 HAY QUE RELACIONAR LAS CITAS CON ALGO :PENDIENTE
 
