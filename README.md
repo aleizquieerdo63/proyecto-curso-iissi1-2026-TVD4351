@@ -289,3 +289,48 @@ Pruebas para RN-04 (Fecha y hora de cita posterior al momento del registro):
 Pruebas para RN-05 (Obligatoriedad de colegiación para la firma de consultas y recetas):
 - Caso positivo: Registrar una consulta médica asignando como responsable a un usuario con rol de veterinario. El resultado esperado es correcto.
 - Caso negativo: Intentar registrar una consulta médica indicando a un usuario sin rol de veterinario. El resultado esperado es un error controlado impidiendo la firma de la consulta.
+
+## 5. Modelado Conceptual
+
+### 5.1. Diagrama de clases UML con restricciones
+
+![Diagrama de clases](img\diagramaclases.jpeg)
+
+### 5.2. Escenarios de pruebas con diagrama de clases UML
+
+#### 5.2.1 Prueba RN-01
+
+![RN-01 Prueba](img\rn1_prueba.jpeg)
+
+El veterinario Carlos Gómez (con DNI 87654321B) ya tiene asignada y confirmada una citaExistente de tipo CONSULTA_GENERAL para el día 2026-11-15 10:00:00. Posteriormente, la recepcionista intenta registrar una citaNuevaIntentada (de tipo REVISION) para el mismo veterinario y exactamente en el mismo tramo horario (2026-11-15 10:00:00), infringiendo la regla de negocio RN-01 (No solapamiento de citas de un mismo veterinario).El sistema detecta el conflicto de horario en la agenda del veterinario, muestra un error controlado y bloquea el almacenamiento de la nueva cita para evitar duplicidades y saturaciones en los gabinetes.
+
+#### 5.2.2 Prueba RN-02
+
+![RN-02 Prueba](img\rn2_prueba.jpeg)
+
+El cliente Juan Pérez (con DNI 12345678A) posee una mascota llamada "Luna" (especie canina, microchip 985142000123456). La recepcionista Ana López crea y gestiona una cita de tipo CONSULTA_GENERAL para el día 2026-11-15 10:00:00 con estado PENDIENTE. Dicha cita es asignada para ser atendida por el Dr. Carlos Gómez, quien se encuentra registrado con el rol de Veterinario y con estado_acceso en Activo, cumpliendo con la regla RN-02. El sistema valida correctamente los datos, comprueba que el veterinario está activo y guarda la cita en la agenda sin incidencias.
+
+#### 5.2.3 Prueba RN-03
+
+![RN-03 Prueba](img\rn3_prueba.jpeg)
+
+La clienta María Ruiz (con DNI 55443322C) posee actualmente un total de 5 mascotas registradas en el sistema (m1, m2, m3, m4 y m5), alcanzando el límite máximo permitido estipulado por la regla de negocio RN-03 (un cliente no puede tener a más de 5 mascotas registradas en la clínica). Si el recepcionista intentara registrar una sexta mascota asociada a este mismo cliente, el sistema bloqueará la operación. El sistema valida correctamente la cardinalidad máxima, advierte que se ha alcanzado el tope de 5 animales y deniega el alta de una nueva mascota para salvaguardar la restricción de negocio
+
+#### 5.2.4 Prueba RN-04
+
+![RN-04 Prueba](img\rn4_prueba.jpeg)
+
+La regla de negocio RN-04 establece que la clínica debe comunicarse con el cliente con un mínimo de 48 horas de antelación para confirmar o anular las citas, prohibiendo expresamente las anulaciones fuera de plazo. En este escenario, la recepcionista Ana López intenta gestionar la anulación de la citaProgramada (programada para el 2026-11-15 09:00:00), pero el margen de tiempo disponible es inferior al mínimo requerido de 48 horas.El sistema detecta el incumplimiento del margen temporal establecido, bloquea el cambio de estado y deniega la anulación de la cita para proteger la planificación de la clínica.
+
+#### 5.2.5 Prueba RN-05
+
+![RN-05 Prueba](img\rn5_prueba.jpeg)
+
+La regla de negocio RN-05 especifica que el sistema debe mantener un control de los pagos, asegurando que no se pueda asignar una cita nueva a un cliente que tenga pendiente el abono de una cita anterior. En este escenario, el cliente Pedro Picapiedra (clienteDeudor) intenta programar una citaNuevaBloqueada, pero el sistema comprueba que mantiene registrada una citaAnteriorPendiente (atendida pero no abonada).El sistema detecta la deuda pendiente asociada al cliente, emite un aviso de incumplimiento de la regla RN-05 y bloquea la asignación y guardado de la nueva cita en la agenda
+
+#### 5.2.6 Prueba RN-06
+
+![RN-06 Prueba](img\rn6_prueba.jpeg)
+
+La regla de negocio RN-06 establece que el director debe supervisar los pagos diarios, asegurando que todas las citas atendidas sean abonadas en un plazo máximo de dos semanas desde su fecha de realización. En este escenario de supervisión, el director Roberto Sánchez (director1) revisa el historial del cliente Pedro Picapiedra (clienteDeudor) y detecta una citaAntiguaSinPagar (con estado ATENDIDA) cuyo tiempo transcurrido supera ampliamente el límite permitido de dos semanas sin haberse liquidado.El sistema, bajo la supervisión del director, identifica el retraso excesivo, genera una alerta por incumplimiento de la regla RN-06 y registra la incidencia para proceder a la reclamación del importe pendiente.
+
