@@ -27,7 +27,12 @@
    4.3. Requisitos funcionales (sólo listados y consultas)
  
    4.4. Pruebas de aceptación de reglas de negocio
+5. Modelo conceptual
 
+   5.1. Diagramas de clases UML con restricciones
+
+   5.2. Escenarios de prueba con descripción textual y diagrama de objetos UML
+6. Matrices de trazabilidad: Matriz de trazabilidad entre los elementos del modelo conceptual y los requisitos de información y reglas de negocio.
 ---
 
 ## 1. Introducción al problema
