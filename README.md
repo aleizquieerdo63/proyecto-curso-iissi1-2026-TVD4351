@@ -302,8 +302,7 @@ Pruebas para RN-06 (Fecha y hora de cita posterior al momento del registro):
 
 ### 5.1. Diagrama de clases UML con restricciones
 
-![Diagrama de clases](img\diagramaclases.jpeg)
-
+[Diagrama de clases](modelado%20conceptual.jpeg)
 ### 5.2. Escenarios de pruebas con diagrama de clases UML
 
 #### 5.2.1 Prueba RN-01
