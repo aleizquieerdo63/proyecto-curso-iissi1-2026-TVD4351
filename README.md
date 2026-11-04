@@ -341,3 +341,7 @@ El cliente David Pérez solicita agendar una nueva consulta ordinaria (citaNueva
 
 Se intenta registrar en el sistema una cita (citaPasada_RECHAZADA) con fecha y hora 2025-01-10 10:00. Como la restricción exige que la fecha de la cita debe ser estrictamente posterior al momento del registro ({fechaHoraProgramada > now()}), el sistema detecta que se trata de un instante pasado y rechaza la creación de la cita cumpliendo la regla RN-06
 
+
+## 6. Matriz de trazabilidad
+
+
