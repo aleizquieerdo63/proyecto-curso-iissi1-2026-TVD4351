@@ -344,4 +344,6 @@ Se intenta registrar en el sistema una cita (citaPasada_RECHAZADA) con fecha y h
 
 ## 6. Matriz de trazabilidad
 
+[Matriz de trazabilidad](Matriz%20de%20trazabilidad.jpeg)
+
 
