@@ -307,37 +307,37 @@ Pruebas para RN-06 (Fecha y hora de cita posterior al momento del registro):
 
 #### 5.2.1 Prueba RN-01
 
-![RN-01 Prueba](img\rn1_prueba.jpeg)
+[RN-01 Prueba](Prueba%20RN-01.jpeg)
 
-El veterinario Carlos Gómez (con DNI 87654321B) ya tiene asignada y confirmada una citaExistente de tipo CONSULTA_GENERAL para el día 2026-11-15 10:00:00. Posteriormente, la recepcionista intenta registrar una citaNuevaIntentada (de tipo REVISION) para el mismo veterinario y exactamente en el mismo tramo horario (2026-11-15 10:00:00), infringiendo la regla de negocio RN-01 (No solapamiento de citas de un mismo veterinario).El sistema detecta el conflicto de horario en la agenda del veterinario, muestra un error controlado y bloquea el almacenamiento de la nueva cita para evitar duplicidades y saturaciones en los gabinetes.
+La regla RN-01 establece que el sistema debe impedir asignar a un mismo veterinario dos citas que coincidan en el mismo tramo de fecha y hora. En este escenario, el veterinario vet1 ya cuenta con una cita programada a las 10:30. Si se intenta programar otra cita para ese mismo veterinario a la misma hora exacta, el sistema detecta el solapamiento y bloquea la operación. El diagrama muestra el estado de la agenda del veterinario con una cita activa.
 
 #### 5.2.2 Prueba RN-02
 
-![RN-02 Prueba](img\rn2_prueba.jpeg)
+[RN-02 Prueba](Prueba%20RN-02.jpeg)
 
-El cliente Juan Pérez (con DNI 12345678A) posee una mascota llamada "Luna" (especie canina, microchip 985142000123456). La recepcionista Ana López crea y gestiona una cita de tipo CONSULTA_GENERAL para el día 2026-11-15 10:00:00 con estado PENDIENTE. Dicha cita es asignada para ser atendida por el Dr. Carlos Gómez, quien se encuentra registrado con el rol de Veterinario y con estado_acceso en Activo, cumpliendo con la regla RN-02. El sistema valida correctamente los datos, comprueba que el veterinario está activo y guarda la cita en la agenda sin incidencias.
+La regla RN-02 exige que las citas se programen exclusivamente dentro del horario comercial de la clínica y con empleados que posean el rol de veterinario y estado activo = true. En este escenario válido, la cita se asigna a un veterinario cuyo horario laboral cubre la franja seleccionada y cuyo estado es activo.
 
 #### 5.2.3 Prueba RN-03
 
-![RN-03 Prueba](img\rn3_prueba.jpeg)
+[RN-03 Prueba](Prueba%20RN-03.jpeg)
 
-La clienta María Ruiz (con DNI 55443322C) posee actualmente un total de 5 mascotas registradas en el sistema (m1, m2, m3, m4 y m5), alcanzando el límite máximo permitido estipulado por la regla de negocio RN-03 (un cliente no puede tener a más de 5 mascotas registradas en la clínica). Si el recepcionista intentara registrar una sexta mascota asociada a este mismo cliente, el sistema bloqueará la operación. El sistema valida correctamente la cardinalidad máxima, advierte que se ha alcanzado el tope de 5 animales y deniega el alta de una nueva mascota para salvaguardar la restricción de negocio
+Un cliente (Cliente) acude a registrar una nueva mascota en el sistema. Según la regla RN-03, un cliente puede poseer un máximo de 5 mascotas. En este escenario de prueba positivo, el cliente actualmente posee 1 mascota y desea registrar la segunda. El sistema permite la operación con éxito al cumplirse la restricción {mascotas.size() <= 5}.
 
 #### 5.2.4 Prueba RN-04
 
-![RN-04 Prueba](img\rn4_prueba.jpeg)
+[RN-04 Prueba](Prueba%20RN-04.jpeg)
 
-La regla de negocio RN-04 establece que la clínica debe comunicarse con el cliente con un mínimo de 48 horas de antelación para confirmar o anular las citas, prohibiendo expresamente las anulaciones fuera de plazo. En este escenario, la recepcionista Ana López intenta gestionar la anulación de la citaProgramada (programada para el 2026-11-15 09:00:00), pero el margen de tiempo disponible es inferior al mínimo requerido de 48 horas.El sistema detecta el incumplimiento del margen temporal establecido, bloquea el cambio de estado y deniega la anulación de la cita para proteger la planificación de la clínica.
+La regla RN-04 estipula que para anular o modificar una cita se requiere una antelación mínima de 48 horas. En este escenario válido, la comunicación y anulación se efectúa con varios días de margen, permitiendo que la cita adopte el estado CANCELADA.
 
 #### 5.2.5 Prueba RN-05
 
-![RN-05 Prueba](img\rn5_prueba.jpeg)
+[RN-05 Prueba](Prueba%20RN-05.jpeg)
 
-La regla de negocio RN-05 especifica que el sistema debe mantener un control de los pagos, asegurando que no se pueda asignar una cita nueva a un cliente que tenga pendiente el abono de una cita anterior. En este escenario, el cliente Pedro Picapiedra (clienteDeudor) intenta programar una citaNuevaBloqueada, pero el sistema comprueba que mantiene registrada una citaAnteriorPendiente (atendida pero no abonada).El sistema detecta la deuda pendiente asociada al cliente, emite un aviso de incumplimiento de la regla RN-05 y bloquea la asignación y guardado de la nueva cita en la agenda
+El cliente David Pérez solicita agendar una nueva consulta ordinaria (citaNueva_BLOQUEADA) para su mascota m7. Sin embargo, el sistema detecta que la cita previa (citaPendientePago) figura en estado ATENDIDA pero aún tiene un saldo pendiente de pago (coste = 35.00). De acuerdo con la regla RN-05, el sistema bloquea el registro de la nueva cita regular hasta que se liquide la deuda anterior.
 
 #### 5.2.6 Prueba RN-06
 
-![RN-06 Prueba](img\rn6_prueba.jpeg)
+[RN-06 Prueba](Prueba%20RN-06.jpeg)
 
-La regla de negocio RN-06 establece que el director debe supervisar los pagos diarios, asegurando que todas las citas atendidas sean abonadas en un plazo máximo de dos semanas desde su fecha de realización. En este escenario de supervisión, el director Roberto Sánchez (director1) revisa el historial del cliente Pedro Picapiedra (clienteDeudor) y detecta una citaAntiguaSinPagar (con estado ATENDIDA) cuyo tiempo transcurrido supera ampliamente el límite permitido de dos semanas sin haberse liquidado.El sistema, bajo la supervisión del director, identifica el retraso excesivo, genera una alerta por incumplimiento de la regla RN-06 y registra la incidencia para proceder a la reclamación del importe pendiente.
+Se intenta registrar en el sistema una cita (citaPasada_RECHAZADA) con fecha y hora 2025-01-10 10:00. Como la restricción exige que la fecha de la cita debe ser estrictamente posterior al momento del registro ({fechaHoraProgramada > now()}), el sistema detecta que se trata de un instante pasado y rechaza la creación de la cita cumpliendo la regla RN-06
 
